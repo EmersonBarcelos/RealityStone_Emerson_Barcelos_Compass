@@ -38,8 +38,28 @@ describe('Calculadora') do
         expect(calculadora.somar(0, 0)).to eq 0
     end
 
-    it('Não deve somar letra com numero') do
+    it('Não deve aceitar letra no segundo campo') do
        expect(calculadora.somar(2, 'f')).to include 'Não pode ser feita a operação com letras'
+    end
+
+    it('Não deve aceitar letra no primeiro campo') do
+        expect(calculadora.somar('f', 4)).to include 'Não pode ser feita a operação com letras'
+    end
+
+    it('Não deve aceitar simbolos no segundo campo') do
+        expect(calculadora.somar(10, "&")).to include "Não pode ser feita a operação com letras ou simbolos"
+    end
+
+    it('Não deve aceitar simbolos no primeiro campo') do
+        expect(calculadora.somar("&", 24)).to include "Não pode ser feita a operação com letras ou simbolos"
+    end
+
+    it('Não deve aceitar palavras no primeiro campo') do
+        expect(calculadora.somar("Sal", 56)).to include 'Não pode ser feita a operação com letras'
+    end
+
+    it('Não deve aceitar palavras no segundo campo') do
+        expect(calculadora.somar(23, "Sal")).to include 'Não pode ser feita a operação com letras'
     end
 
 #------------------------SUBTRAÇÃO----------------------------------
@@ -71,8 +91,28 @@ describe('Calculadora') do
         expect(calculadora.subtrair(0, 0)).to eq 0
     end
 
-    it('Não deve subtrair uma letra por um número') do
-        expect(calculadora.subtrair('T', 5)).to include 'Essa operação não é possivel'
+    it('Não deve aceitar uma letra no primeiro campo') do
+        expect(calculadora.subtrair('T', 5)).to include "Essa operação não é possivel"
+    end
+
+    it('Não deve aceitar uma letra no segundo campo') do
+        expect(calculadora.subtrair(3, 'Y')).to include "Não pode ser feita a operação com letras ou simbolos"
+    end
+
+    it('Não deve aceitar simbolos no primeiro campo') do
+        expect(calculadora.subtrair('(', 10)).to include "Essa operação não é possivel"
+    end
+
+    it('Não deve aceitar simbolos no segundo campo') do
+        expect(calculadora.subtrair(22, ')')).to include "Não pode ser feita a operação com letras ou simbolos"
+    end
+
+    it('Não deve aceitar palavras no segundo campo') do
+        expect(calculadora.subtrair(56, "manga")).to include 'Não pode ser feita a operação com letras ou simbolos'
+    end
+
+    it('Não deve aceitar palavras no primeiro campo') do
+        expect(calculadora.subtrair("manga", 57)).to include "Essa operação não é possivel"
     end
 #-------------------------MULTIPLICAÇÃO---------------------------------
     it('Deve multiplicar dois números inteiros positivos') do
@@ -108,8 +148,17 @@ describe('Calculadora') do
     end
     
     it('Não deve multiplicar um numero por uma letra') do
-        expect(calculadora.multiplicar(9, 'E')).to include 'Não pode ser feita a operação com letras ou simbolos'
+        expect(calculadora.multiplicar(9, 'E')).to include 'Não pode ser feita a operação com letras'
     end
+
+    it('Não deve aceitar palavras nos campos') do
+        expect(calculadora.multiplicar(89, "casa")).to include 'Não pode ser feita a operação com letras'
+    end
+    
+    it('Não deve aceitar simbolo nos campos') do
+        expect(calculadora.multiplicar(89, "@")).to include 'Não pode ser feita a operação com letras'
+    end
+
 #-------------------------DIVISÃO---------------------------------------
     it('Deve dividir dois números positivos') do
         expect(calculadora.dividir(10, 2)).to eq 5
@@ -143,13 +192,73 @@ describe('Calculadora') do
         expect(calculadora.dividir(0, 0)).to include 'Não pode dividir zero por zero'
     end
 
+    it('Não deve aceitar simbolos no primeiro campo') do
+        expect(calculadora.dividir('$', 10)).to include "Essa operação não é possivel"
+    end
+
+    it('Não deve aceitar simbolos no segundo campo') do
+        expect(calculadora.dividir(3, '$')).to include "Não pode ser feita a operação com letras ou simbolos"
+    end
+
+    it('Não deve aceitar palavra no segundo campo') do
+        expect(calculadora.dividir(56, "Xurupita")).to include 'Não pode ser feita a operação com letras'
+    end
+
+    it('Não deve aceitar palavra no primeiro campo') do
+        expect(calculadora.dividir("Xurupita", 34)).to include "Essa operação não é possivel"
+    end
+
+    it('Não deve aceitar letra no primeiro campo') do
+        expect(calculadora.dividir("S", 39)).to include "Essa operação não é possivel"
+    end
+
+    it('Não deve aceitar letra no segundo campo') do
+        expect(calculadora.dividir(23, "S")).to include 'Não pode ser feita a operação com letras'
+    end
+
 #--------------------PORCENTAGEM-------------------------------
 
-    it('Deve obter o valor de 35% de 500') do
+    it('Deve obter o valor de uma porcentagem sobre um numero inteiro positivo') do
         expect(calculadora.porcentagem(35, 500)).to eq 175
     end
 
-    it('Deve obter o valor de 45% de 3500') do
-        expect(calculadora.porcentagem(45, 3500)).to eq 1575
+    it('Deve obter o valor de uma porcentagem sobre um numero inteiro negativo') do
+        expect(calculadora.porcentagem(45, -3500)).to eq -1575
+    end
+
+    it('Deve obter o valor de uma porcentagem sobre um numero float positivo') do
+        expect(calculadora.porcentagem(30, 47.5)).to eq 14.3
+    end
+
+    it('Deve obter o valor de uma porcentagem sobre um numero float negativo') do
+        expect(calculadora.porcentagem(15, -55.2)).to eq -8.3
+    end
+
+    it('Não deve aceitar porcetagem maior que 100') do
+        expect(calculadora.porcentagem(102, 789)).to include 'A porcentagem não pode ser maior que 100'
+    end
+
+    it('Não deve aceitar letra no segundo campo') do
+        expect(calculadora.porcentagem(80, "E")).to include 'Não pode ser feita a operação com letras ou simbolos'
+    end
+
+    it('Não deve aceitar letras no primeiro campo') do
+        expect(calculadora.porcentagem("E", 2)).to include 'Deve ser feita operação com números'
+    end
+
+    it('Não deve aceitar simbolos nos campos') do
+        expect(calculadora.porcentagem('@', 5000)).to include 'Deve ser feita operação com números'
+    end
+
+    it('Não deve aceitar simbolos nos campos') do
+        expect(calculadora.porcentagem(50, '@')).to include 'Não pode ser feita a operação com letras ou simbolos'
+    end
+
+    it('Não deve aceitar palavras nos campos') do
+        expect(calculadora.porcentagem(47, "Emerson")).to include 'Não pode ser feita a operação com letras ou simbolos'
+    end
+
+    it('Não deve aceitar palavras nos campos') do
+        expect(calculadora.porcentagem("Emerson", 1000)).to include "Deve ser feita operação com números"
     end
 end

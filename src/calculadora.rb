@@ -8,6 +8,8 @@ class Calculadora
             return "Não pode ser feita a operação com letras ou simbolos"
         rescue NoMethodError
             return "Essa operação não é possivel"
+        rescue ArgumentError
+            return "Deve ser feita operação com números"
         else
             resultado.round(1)
        end
@@ -17,9 +19,11 @@ class Calculadora
         begin
             resultado = numero1 - numero2
         rescue TypeError
-            return "Não pode ser feita a operação com letras"
+            return "Não pode ser feita a operação com letras ou simbolos"
         rescue NoMethodError
             return "Essa operação não é possivel"
+        rescue ArgumentError
+            return "Deve ser feita operação com números"
         else
             resultado.round(1)
        end
@@ -29,9 +33,11 @@ class Calculadora
         begin
             resultado = numero1 * numero2
         rescue TypeError
-            return "Não pode ser feita a operação com letras ou simbolos"
+            return "Não pode ser feita a operação com letras"
         rescue NoMethodError
             return "Essa operação não é possivel"
+        rescue ArgumentError
+            return "Deve ser feita operação com números"
         else
             resultado.round(1)
        end
@@ -46,12 +52,28 @@ class Calculadora
             return "Essa operação não é possivel"
         rescue ZeroDivisionError
             return "Não pode dividir zero por zero"
+        rescue ArgumentError
+            return "Deve ser feita operação com números"
         else
             resultado.round(1)
        end
     end
 
     def porcentagem(porcentagem, numero)
-        porcentagem * numero / 100
+        
+        begin
+            if porcentagem > 100
+               return "A porcentagem não pode ser maior que 100"
+            end
+            resultado =  porcentagem * numero / 100
+        rescue TypeError
+            return "Não pode ser feita a operação com letras ou simbolos"
+        rescue NoMethodError
+            return "Essa operação não é possivel"
+        rescue ArgumentError
+            return "Deve ser feita operação com números"
+        else
+            resultado.round(1)
+       end
     end
 end
