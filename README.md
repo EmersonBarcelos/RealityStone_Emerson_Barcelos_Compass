@@ -1,54 +1,82 @@
-Titulo do Projeto
-Aqui vai uma breve descrição do projeto
+<h1>Testes Rspec de uma calculadora</h1>
+Testes aumomatizados para uma calculadora feita em Ruby 
 
-Apresentação
-Essas instruções irão auxiliar a obtenção de uma cópia do projeto em sua máquina local para desenvolvimento para desenvolvimento e testes.
+<h2>Apresentação</h2>
+A calculadora foi desenvolvida com as funções de somar, subtrair, multiplicar, dividir e obter valor de um número sobre uma porcentagem
 
-Pré requisitos
-Aqui são listados os pré requisitos do projeto, assim como os comandos e links para a instalação dos mesmos
 
-compatível com versão x do sistema operacional y
-versão x do node deve estar instalada
-Instalação
-Aqui vai um passo a passo para que o projeto possa ser executado
+<h2>Pré requisitos</h2>
+Tecnologias e ferramentas ultilzadas no projetos:</br>
 
-Instalar os node modules
+  <ul>
+    <li><a href="https://rubyinstaller.org/downloads/">RUBY 3.1.2,</a></li>
+    <li><a href="https://cmder.app/">CMDER</a></li>
+    <li><a href="https://git-scm.com/">GIT</a></li>
+    <li><a href="https://code.visualstudio.com/">VSCODE</a></li>
+  </ul>
 
-npm install
-Instalar o cypress
+Instalação compativel com Windows 10
 
-npm install cypress
-Execução dos testes
-Explicação de como executar os testes automatizados
+<h2>Instalação</h2>
 
-npm run cy:test
-Break down into end to end tests
-Explicação sobre os tipos de testes realizados e como consultar os reports gerados
+Feita a instalação das ferramentas abra o CMDER e rode o seguinte comando:
+  
+<pre>
+<span style="font-weight: 400">gem install bundler</span>
+</pre>
 
-Aqui pode ser informada uma pasta para acesso dos reports ou algum comando necessário
-Deployment
-Informar aqui como realizar os PR's para atualização do projeto:
+Agora para clonar o projeto em sua maquina abra o GIT BASH em uma pasta e rode:
 
-git checkout -b "nome_da_branch"
-git commit -m "mensagem do commit"
-git push origin nome_da_branch:nome_da_branch
-Técnologias utilizadas
-Aqui são listadas as técnologias utilizadas no projeto
+<pre>
+<span style="font-weight: 400">git clone https://github.com/EmersonBarcelos/RealityStone_Emerson_Barcelos_Compass.git</span>
+</pre>
 
-Cypress - The test framework used
-Cucumber - BDD + geração de relatório de teste
-Contribuição
-Nesta sessão são descritas as políticas para novas contribuições e os valores analisados para aceitação das mesmas
+Abra o CMDER na pasta do projeto e faça a instalação das dependencias com o comando:
 
-Autores
-Autor Aqui - Entrega inicial - Link para a raiz do projeto no git
-Importante listar os contribuintes que participaram deste projeto
+<pre>
+<span style="font-weight: 400">bundle install</span>
+</pre>
 
-License
-Aqui devem vir as informações de licenciamento do projeto
+<h2>Execução dos testes</h2>
 
-Créditos
-Agradecimento as pessoas que apoiaram no projeto
-Sites utilizados como referência
-etc
+Para a execução automatizada dos testes abra o CMDER na pasta do projeto e rode:
+
+<pre>
+<span style="font-weight: 400">bundle exec rspec specs\calculadora_spec.rb</span>
+</pre>
+
+<h2>Deployment</h2>
+Para atualização do projeto e correção de bugs:
+<pre>
+<span style="font-weight: 400">git checkout -b "develop"</span>
+</pre>
+<pre>
+<span style="font-weight: 400">git commit -m "Correção <correção feita> "</span>
+</pre>
+<pre>
+<span style="font-weight: 400">git push origin https://github.com/EmersonBarcelos/RealityStone_Emerson_Barcelos_Compass</span>
+</pre>
+
+</ul>
+
+<h2>Contribuições</h2>
+
+Para contruibuições faça o commit na brach "develop" com a descrição da atualização para analise
+
+<h3>Autor</h3>
+Emerson Barcelos - 30/08/22  - https://github.com/EmersonBarcelos/RealityStone_Emerson_Barcelos_Compass
+
+<h3>License</h3>
+
+Software pode ser modificado, usado comercialmente e distribuído.
+Software pode ser modificado e usado de forma privada.
+A licença e os direitos precisam ser incluídos no software.
+Os autores dos software não provêm garantias.
+
+<h3>Créditos</h3>
+fontes ultilizadas:
+<ul>
+  <li>https://www.ruby-lang.org/pt/documentation/</li>
+  <li>https://rspec.info/documentation/</li>
+</ul>
 

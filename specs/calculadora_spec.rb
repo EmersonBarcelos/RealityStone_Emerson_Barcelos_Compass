@@ -261,4 +261,8 @@ describe('Calculadora') do
     it('Não deve aceitar palavras nos campos') do
         expect(calculadora.porcentagem("Emerson", 1000)).to include "Deve ser feita operação com números"
     end
+
+    it('Não deve aceitar palavras nos campos') do
+        expect(calculadora.porcentagem("Emerson", 1000)).to include "Deve ser feita operação com números"
+    end
 end
