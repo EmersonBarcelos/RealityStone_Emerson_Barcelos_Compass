@@ -61,7 +61,7 @@ Para atualização do projeto e correção de bugs:
 
 <h2>Contribuições</h2>
 
-Para contruibuições faça o commit na brach "develop" com a descrição da atualização para analise
+Para contruibuições faça o commit na brach "develop" com a descrição da atualização para analise.
 
 <h3>Autor</h3>
 Emerson Barcelos - 30/08/22  - https://github.com/EmersonBarcelos/RealityStone_Emerson_Barcelos_Compass
